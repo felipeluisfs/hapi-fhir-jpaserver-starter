@@ -57,8 +57,6 @@ spring:
       hibernate.dialect: ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect
       hibernate.hbm2ddl.auto: update
       hibernate.search.enabled: false
-hapi:
-  fhir:
     ### This flag when enabled to true, will avail evaluate measure operations from CR Module.
     ### Flag is false by default, can be passed as command line argument to override.
     cr:
@@ -328,7 +326,21 @@ hapi:
     #      responses_enabled: true
     #    binary_storage_enabled: true
     inline_resource_storage_below_size: 4000
+    logging:
+      level:
+        ca.uhn.fhir.jpa.subscription: DEBUG
+        ca.uhn.fhir.jpa.subscription.match.matcher: DEBUG
+        ca.uhn.fhir.jpa.subscription.resthook: DEBUG
     subscription:
+      enabled: true
+      resthook:
+        enabled: true
+      websocket:
+        enabled: false
+      poll-delay: 1000  # ms between scans
+      matcher: in-memory
+      delivery:
+        enabled: true
       resthook_enabled: true
       websocket_enabled: false
       polling_interval_ms: 5000
