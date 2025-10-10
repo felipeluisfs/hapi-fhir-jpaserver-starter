@@ -57,6 +57,8 @@ spring:
       hibernate.dialect: ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect
       hibernate.hbm2ddl.auto: update
       hibernate.search.enabled: false
+hapi:
+  fhir:
     ### This flag when enabled to true, will avail evaluate measure operations from CR Module.
     ### Flag is false by default, can be passed as command line argument to override.
     cr:
